@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disaster Management Monitoring Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-left">
+        <div class="logo">SIH</div>
+        <div>
+          <h1>Disaster Management Monitoring Dashboard</h1>
+          <div class="subtitle">Solar-Powered ESP32 Field Sensor Unit</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="header-meta">
+          <span class="meta-label">Device</span>
+          <span class="meta-value">ESP32-FSU-01</span>
+        </div>
+        <div class="header-meta">
+          <span class="meta-label">Location</span>
+          <span class="meta-value">Nashik, Maharashtra</span>
+        </div>
+        <span class="badge-sim">● Live Simulation</span>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="status-panel safe" id="statusPanel">
+        <div class="status-left">
+          <div class="status-ring" id="statusEmoji">🟢</div>
+          <div>
+            <div class="status-label">Overall Field Status</div>
+            <div class="status-text" id="statusText">SAFE</div>
+            <div class="status-desc" id="statusDesc">
+              All sensors within normal operating range.
+            </div>
+          </div>
+        </div>
+        <div class="status-right">
+          <span class="scenario-state" id="scenarioState"
+            >Mode: Normal monitoring</span
+          >
+          <button class="btn btn-danger" id="btnScenario">
+            Run Disaster Scenario
+          </button>
+          <button class="btn btn-ghost small" id="btnReset">
+            Reset to Normal
+          </button>
+        </div>
+      </section>
+
+      <h2 class="section-title">Sensor Readings</h2>
+      <section class="card-grid" id="cardGrid"></section>
+
+      <div class="two-col">
+        <section class="panel">
+          <h2 class="section-title">Trends (last 20 readings)</h2>
+          <div class="chart-block">
+            <div class="chart-head">
+              <span>Temperature</span>
+              <span class="chart-now" id="chartNowTemp">--</span>
+            </div>
+            <div class="chart bars" id="chartTemp"></div>
+          </div>
+          <div class="chart-block">
+            <div class="chart-head">
+              <span>Humidity</span>
+              <span class="chart-now" id="chartNowHum">--</span>
+            </div>
+            <div class="chart bars" id="chartHum"></div>
+          </div>
+          <div class="chart-block">
+            <div class="chart-head">
+              <span>Water Level</span>
+              <span class="chart-now" id="chartNowWater">--</span>
+            </div>
+            <div class="chart bars" id="chartWater"></div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2 class="section-title">Field Unit Location</h2>
+          <div class="map">
+            <div class="map-grid"></div>
+            <div class="map-river"></div>
+            <div class="map-pin">
+              <span class="pin-dot"></span>
+              <span class="pin-pulse"></span>
+              <span class="pin-label">ESP32-FSU-01</span>
+            </div>
+            <span class="map-tag">GPS approx.</span>
+          </div>
+          <ul class="gps-list">
+            <li><span>Latitude</span><strong id="gpsLat">--</strong></li>
+            <li><span>Longitude</span><strong id="gpsLon">--</strong></li>
+            <li><span>Satellites</span><strong class="ok">8 locked</strong></li>
+            <li>
+              <span>Last update</span><strong id="lastUpdated">--</strong>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <section class="panel">
+        <div class="alerts-head">
+          <h2 class="section-title">Alerts &amp; Events Log</h2>
+          <button class="btn btn-ghost small" id="btnClear">Clear log</button>
+        </div>
+        <ul class="alert-list" id="alertList"></ul>
+      </section>
+
+      <footer class="footer"></footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
